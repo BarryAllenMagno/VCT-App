@@ -1,0 +1,32 @@
+﻿@model Notepad
+
+<form method="post">
+    <div class="border p-3 mt-4" style="width: 70%; margin: auto" >
+        <div class="row pb-2">
+            <h2 class="text-primary">Create Notepad</h2>
+            <hr/>
+        </div>
+        <div asp-validation-summary="All">
+
+        </div>
+        <div class="mb-3">
+            <label asp-for="Title"></label>
+            <input asp-for="Title" class="form-control bg-dark" style="color: lightgray" />
+            <span asp-validation-for="Title" class="text-danger"></span> 
+        </div>
+        <div class="mb-3">
+            <label>Content</label>
+            <textarea rows="10" asp-for="Content" class="form-control bg-dark" style="color: lightgray"></textarea>
+            <span asp-validation-for="Content" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-success mb-2 me-2" style="width:150px">Create</button>
+        <a asp-controller="Notepad" asp-action="Index" class="btn btn-secondary mb-2" style="width:150px">Cancel</a>
+    </div>
+</form>
+
+@section Scripts
+{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
